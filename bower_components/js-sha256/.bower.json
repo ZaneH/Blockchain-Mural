@@ -1,0 +1,22 @@
+{
+  "name": "js-sha256",
+  "version": "0.7.1",
+  "main": [
+    "src/sha256.js"
+  ],
+  "ignore": [
+    "samples",
+    "tests"
+  ],
+  "homepage": "https://github.com/emn178/js-sha256",
+  "_release": "0.7.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.7.1",
+    "commit": "7ae6c3e7841021aeafd7caa7183727d7bc20a88e"
+  },
+  "_source": "https://github.com/emn178/js-sha256.git",
+  "_target": "^0.7.1",
+  "_originalSource": "js-sha256",
+  "_direct": true
+}
