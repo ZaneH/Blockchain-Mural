@@ -5,14 +5,9 @@
 </head>
   <body>
     <input type="text" name="votedata" id="voteinput">
-    <button onclick="generateHash();">Generate</button>
+    <button onclick="generateValidHash();">Generate</button>
   </body>
 
   <script type="text/javascript" src="./bower_components/js-sha256/src/sha256.js"></script>
-  <script type="text/javascript">
-    function generateHash() {
-      var voteData = document.getElementById('voteinput').value;
-      return sha256(voteData);
-    }
-  </script>
+  <script type="text/javascript" src="./main.js"></script>
 </html>
