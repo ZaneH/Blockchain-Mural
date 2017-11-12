@@ -1,0 +1,52 @@
+{
+  "confirmed": [
+    {
+      "confirmee": "0",
+      "hash": "0",
+      "previousHash": "0",
+      "timestamp": "0",
+      "votes": [
+        {
+          "data": "SIGNED VOTE",
+          "from": "JobFarm9",
+          "nonce": "0.9832991855235",
+          "timestamp": "12"
+        }
+      ]
+    },
+    {
+      "confirmee": "0",
+      "hash": "0",
+      "previousHash": "0",
+      "timestamp": "0",
+      "votes": [
+        {
+          "data": "SIGNED VOTE",
+          "from": "JobFarm9",
+          "nonce": "0.9832991855235",
+          "timestamp": "12"
+        }
+      ]
+    }
+  ],
+  "pending": [
+    {
+      "data": "SIGNED VOTE",
+      "from": "RickRack3",
+      "nonce": "0.3382785822546",
+      "timestamp": "3"
+    },
+    {
+      "data": "SIGNED VOTE",
+      "from": "JobFarm9",
+      "nonce": "0.9832991855235",
+      "timestamp": "12"
+    },
+    {
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"nonce\":\"0\",\"from\":\"ZANE\",\"timestamp\":\"0\",\"data\":\"\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaCKFVCRBtP16xwKrrYQAAt7MQAK92jAzQrBZlgHbInT2b\nuP9O6leBW/B4JuQfGp2bDrZjaH5bC0+hITGYaG7wNhh/BcLBr1mwYEcmpjJX\nINH5rOXUcw7b9/ecX1NFnLaxPdrpSZkMf5hYXFBPpeR8z+8oFackEV0pYX11\nS6KFb/egApRWoWvlnPFIbF/Ljbj8ArxgdTD083JO6/gyeMPOWOwc9BlvMAWC\nYa5vfqiqrrW8hzIo0eOEpzCjN0in+IC2GQXO2xxwtiDiO4nP2GxmzhOJIyuX\nYgQvDofg3/S06/b7Gto1reg2NWrbcRR7leA8JBATYXaBsAluKA7lAnWhylT5\n6qKykoCzd6VRJ6X/FZMboW93ub2gRU8zKRpw4GHJheOVhDTfNXpxLsLnTCez\nCRdmBXldInBIK/974un3ePHszCtyxQtrNhcDv4GV4rp+B/zcGuoeDexRQcZa\nKgpJa4RmiySS7J9vx3cS/C+0793n/bWwR5LbfjtVTOFiebRMCTs1kO/dl/xF\nnZSkHCcbANitFvZ0wi/A6f0FsWDe+jTMXl+e9mWFFjLA912D5p8nfJnAUIX8\nG9qfu3sG2DxHVLz29jiejHCagHXy5RXFV9VSYwEOYjtJU/CXUobhynoqmR9k\n7+iX+N1c92QcTqg/S/hM+shtHc4O/fXDBsuwZqhgQR1mxjNwIUC6dO7QlVDq\nidTm\r\n=n/Bk\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "0",
+      "nonce": "0",
+      "timestamp": 1510515030
+    }
+  ]
+}

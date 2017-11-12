@@ -120,13 +120,14 @@ function confirmPendingTransaction() {
 
   // setting up the transaction block to submit as Proof of Work
   var workingTransactionBlock = {
-    confirmee: JSON.stringify(workingTransaction),
+    confirmee: "none",
     hash: workingHash.toString(),
     previousHash: '0',
-    timestamp: (Math.floor(Date.now() / 1000)).toString()
+    timestamp: (Math.floor(Date.now() / 1000)).toString(),
+    transaction: JSON.stringify(workingTransaction)
   };
 
-  submitWorkingTransactionBlock(workingTransactionBlock, function() {
+  submitWorkingTransactionBlock(JSON.stringify(workingTransactionBlock), function() {
     // proof of work was submitted to server
   });
 

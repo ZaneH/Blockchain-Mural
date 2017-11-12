@@ -1,5 +1,5 @@
 function pullPendingTransactionBlocks(callback) {
-	$.get("http://localhost:8080/pending_transaction_blocks.json", callback);
+	$.get("http://localhost:8080/blockchain.json", callback);
 }
 
 function submitWorkingTransactionBlock(transactionBlock, callback) {
