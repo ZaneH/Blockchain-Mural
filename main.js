@@ -16,6 +16,15 @@ var pendingTransactions = [genesisTransaction];
  */
 var transactionBlocks = [];
 
+function startProcess() {
+  // set transaction blocks to the pending_transaction_blocks.json file on the Go server
+  transactionBlocks = pullPendingTransactionBlocks(function(data) {
+    transactionBlocks = data;
+    console.log(transactionBlocks);
+    // TODO: process pending transaction blocks
+  });
+}
+
 /* Confirm Pending Transaction
  * Takes the most recent pending transaction and attempts to
  * find a valid hash. A valid hash is one that starts with 2
