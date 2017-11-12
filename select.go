@@ -24,7 +24,7 @@ func main() {
 	http.HandleFunc("/pending_transaction_blocks.json", PendingTransactionBlocks)
 	http.HandleFunc("/submit_transaction_block", SubmitTransactionBlock)
 	http.HandleFunc("/submit_vote", SubmitVote);
-	log.Fatal(http.ListenAndServe(":80", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 // handle proof of works that have been submitted by clients
