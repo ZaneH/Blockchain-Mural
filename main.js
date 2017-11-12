@@ -1,12 +1,22 @@
-// this "genesis" transaction gives the first person something to confirm
-var genesisTransaction = {
+/* This is what a transaction looks like.
+ * (unused) */
+var __unused_transaction_template = {
   nonce: "",
   from: "",
   timestamp: "",
   data: ""
 };
 
-var pendingTransactions = [genesisTransaction];
+/* This is what a transaction block looks like.
+ * (unused) */
+var __unused_transaction_block_template = {
+  transaction: "",
+  transactionBlockHash: "",
+  previousTransactionBlockHash: "",
+  timestamp: ""
+}
+
+var pendingTransactions = [];
 
 /* Transaction Blocks
  * This project is to demonstrate how a Blockchain works and
@@ -18,10 +28,12 @@ var transactionBlocks = [];
 
 function startProcess() {
   // set transaction blocks to the pending_transaction_blocks.json file on the Go server
-  transactionBlocks = pullPendingTransactionBlocks(function(data) {
-    transactionBlocks = data;
-    console.log(transactionBlocks);
+  pullPendingTransactionBlocks(function(data) {
+    pendingTransactions = data["pending"]; // pending_transaction_blocks.json stores the blocks in a "pending" array
+    console.log("[+] Retrieved pending transaction blocks:\n" + JSON.stringify(pendingTransactions, null, 2));
     // TODO: process pending transaction blocks
+
+    confirmPendingTransaction();
   });
 }
 
@@ -35,8 +47,8 @@ function startProcess() {
 function confirmPendingTransaction() {
   workingTransaction = pendingTransactions[0];
   workingHash = "";
-
-  var re = new RegExp("^[a-f]{2}");
+  
+  var re = new RegExp("^[a-f]{9}");
 
   do {
     workingTransaction.nonce = Math.random().toString(); // prevents the same hash from being generated twice
@@ -44,12 +56,12 @@ function confirmPendingTransaction() {
   } while (re.exec(workingHash) == null);
 
   var workingTransactionBlock = {
-    transaction: JSON.stringify(workingTransaction),
+    transaction: JSON.stringify(workingTransaction, null, 2),
     transactionBlockHash: workingHash.toString(),
     previousTransactionBlockHash: '0',
-    date: (Math.floor(Date.now() / 1000)).toString()
+    timestamp: (Math.floor(Date.now() / 1000)).toString()
   };
 
   console.log("[+] Found valid hash: " + workingHash);
-  console.log("[+] Generated a transaction block:\n" + JSON.stringify(workingTransactionBlock));
+  console.log("[+] Generated a transaction block:\n" + JSON.stringify(workingTransactionBlock, null, 2));
 }
