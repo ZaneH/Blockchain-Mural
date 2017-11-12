@@ -1,10 +1,10 @@
 package main
 
 import (
-"net/http"
-"fmt"
-"log"
-"encoding/json"
+	"net/http"
+	"fmt"
+	"log"
+	"encoding/json"
 )
 
 type TransactionBlock struct {
@@ -21,9 +21,9 @@ type VoteData struct {
 
 func main() {
 	http.HandleFunc("/", UnhandledRequest)
-	http.HandleFunc("/pending_transaction_blocks.json", PendingTransactionBlocks)
 	http.HandleFunc("/submit_transaction_block", SubmitTransactionBlock)
 	http.HandleFunc("/submit_vote", SubmitVote);
+	http.HandleFunc("/pending_transaction_blocks.json", PendingTransactionBlocks)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
@@ -44,8 +44,6 @@ func SubmitTransactionBlock(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-
-
 }
 
 func SubmitVote(w http.ResponseWriter, r *http.Request) {
@@ -62,7 +60,7 @@ func SubmitVote(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	fmt.Fprintf(w, jsonData.Message)
+	
 }
 
 // print contents of pending_transaction_blocks.json in plain-text

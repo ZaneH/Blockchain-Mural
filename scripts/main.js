@@ -47,7 +47,7 @@ function startMining() {
  */
 function createVote() {
   console.log("[-] Generating key-pair...");
-  // generates an openpgp key-pair (public and private)
+  // generates a key-pair (public and private)
   // this will be used later to sign the transaction and verify the contents
 
   // PLEASE DO NOT USE THE GENERATED KEYS IN THE REAL WORLD
@@ -61,9 +61,6 @@ function createVote() {
     var pubkey = key.publicKeyArmored;
 
     console.log("[+] Generated public and private key-pair");
-    // console.log("[+] KEYS:");
-    // console.log(pubkey);
-    // console.log(privkey);
 
     var privKeyObj = openpgp.key.readArmored(privkey).keys;
 
@@ -78,17 +75,7 @@ function createVote() {
     console.log("[-] Signing vote...");
     openpgp.sign(options).then(function(signed) {
         cleartext = signed.data;
-
         console.log("[+] Signed vote");
-
-        // options = {
-        //   message: openpgp.cleartext.readArmored(cleartext),
-        //   publicKeys: openpgp.key.readArmored(pubkey).keys
-        // };
-
-        // openpgp.verify(options).then(function(verified) {
-        //   validity = verified.signatures[0].valid;
-        // });
 
         var postData = {
           publickey: pubkey,
