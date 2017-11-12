@@ -17,6 +17,3 @@ development. The IP address is `104.131.6.207`.
 
 ## Contributions
 Welcome
-
-## Creators
-- Zane Helton
