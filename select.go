@@ -14,10 +14,16 @@ type TransactionBlock struct {
 	Timestamp string
 }
 
+type VoteData struct {
+	PublicKey string
+	Message string
+}
+
 func main() {
 	http.HandleFunc("/", UnhandledRequest)
 	http.HandleFunc("/pending_transaction_blocks.json", PendingTransactionBlocks)
 	http.HandleFunc("/submit_transaction_block", SubmitTransactionBlock)
+	http.HandleFunc("/submit_vote", SubmitVote);
 	log.Fatal(http.ListenAndServe(":80", nil))
 }
 
@@ -27,11 +33,6 @@ func SubmitTransactionBlock(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 
 	var jsonData TransactionBlock
-	err := decoder.Decode(&jsonData)
-	if err != nil {
-		panic(err)
-	}
-
 	/* Keys for the jsonData variable
 	 * jsonData.Confirmee
 	 * jsonData.Hash
@@ -39,7 +40,29 @@ func SubmitTransactionBlock(w http.ResponseWriter, r *http.Request) {
 	 * jsonData.Timestamp
 	 */
 
-	 
+	err := decoder.Decode(&jsonData)
+	if err != nil {
+		panic(err)
+	}
+
+
+}
+
+func SubmitVote(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
+	decoder := json.NewDecoder(r.Body)
+
+	var jsonData VoteData
+	/* jsonData.PublicKey
+	 * jsonData.Message */
+
+	err := decoder.Decode(&jsonData)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Fprintf(w, jsonData.Message)
 }
 
 // print contents of pending_transaction_blocks.json in plain-text

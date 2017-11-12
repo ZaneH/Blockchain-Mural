@@ -1,19 +1,19 @@
-/* This is what a transaction looks like.
- * (unused) */
-var transaction_template = {
-  nonce: "",
-  from: "",
-  timestamp: "",
-  data: ""
-};
+class Transaction {
+  constructor(nonce, from, timestamp, data) {
+    this.nonce = nonce;
+    this.from = from;
+    this.timestamp = timestamp;
+    this.data = data;
+  }
+}
 
-/* This is what a transaction block looks like.
- * (unused) */
-var transaction_block_template = {
-  confirmee: "",
-  hash: "",
-  previousHash: "",
-  timestamp: ""
+class TransactionBlock {
+  constructor(confirmee, hash, previousHash, timestamp) {
+    this.confirmee = confirmee;
+    this.hash = hash;
+    this.previousHash = previousHash;
+    this.timestamp = timestamp;
+  }
 }
 
 /* Pending Transactions
@@ -49,8 +49,10 @@ function createVote() {
   console.log("[-] Generating key-pair...");
   // generates an openpgp key-pair (public and private)
   // this will be used later to sign the transaction and verify the contents
+
+  // PLEASE DO NOT USE THE GENERATED KEYS IN THE REAL WORLD
   var options = {
-      userIds: [{ name:'', email:'' }],
+      userIds: [{ name:"", email:"" }],
       numBits: 4096
   };
 
@@ -59,6 +61,46 @@ function createVote() {
     var pubkey = key.publicKeyArmored;
 
     console.log("[+] Generated public and private key-pair");
+    // console.log("[+] KEYS:");
+    // console.log(pubkey);
+    // console.log(privkey);
+
+    var privKeyObj = openpgp.key.readArmored(privkey).keys;
+
+    var voteInput = document.getElementById("voteinput").value;
+    var voteToSign = new Transaction('0', 'ZANE', '0', voteInput);
+
+    var options = {
+        data: JSON.stringify(voteToSign),
+        privateKeys: privKeyObj,
+    };
+
+    console.log("[-] Signing vote...");
+    openpgp.sign(options).then(function(signed) {
+        cleartext = signed.data;
+
+        console.log("[+] Signed vote");
+
+        // options = {
+        //   message: openpgp.cleartext.readArmored(cleartext),
+        //   publicKeys: openpgp.key.readArmored(pubkey).keys
+        // };
+
+        // openpgp.verify(options).then(function(verified) {
+        //   validity = verified.signatures[0].valid;
+        // });
+
+        var postData = {
+          publickey: pubkey,
+          message: cleartext
+        };
+
+        // submits the postData variable to the Go server
+        console.log("[-] Submitting vote to server...")
+        submitVote(JSON.stringify(postData), function(response) {
+          console.log("[+] Server said: " + response);
+        });
+    });
   });
 }
 

@@ -4,13 +4,13 @@
 			"nonce": "0.3382785822546",
 			"from": "RickRack3",
 			"timestamp": "3",
-			"data": "Hey"
+			"data": "SIGNED VOTE"
 		},
 		{
 			"nonce": "0.9832991855235",
 			"from": "JobFarm9",
 			"timestamp": "12",
-			"data": "Wassup!"
+			"data": "SIGNED VOTE"
 		}
 	],
 	"confirmed": [
@@ -18,7 +18,29 @@
 			"confirmee": "0",
 			"hash": "0",
 			"previousHash": "0",
-			"timestamp": "0"
+			"timestamp": "0",
+			"votes": [
+				{
+					"nonce": "0.9832991855235",
+					"from": "JobFarm9",
+					"timestamp": "12",
+					"data": "SIGNED VOTE"
+				}
+			]
+		},
+		{
+			"confirmee": "0",
+			"hash": "0",
+			"previousHash": "0",
+			"timestamp": "0",
+			"votes": [
+				{
+					"nonce": "0.9832991855235",
+					"from": "JobFarm9",
+					"timestamp": "12",
+					"data": "SIGNED VOTE"
+				}
+			]
 		}
 	]
 }
