@@ -4,16 +4,18 @@ University of Charlotte at North Carolina. This project was built to help visual
 Blockchain works through an interactive mural.
 
 ## How to Run
-The Blockchain is still in an early stage, but to run the repository as-is, first the repo needs to be cloned.
-
+1. Clone the repository
 ```bash
-$ git clone https://github.com/ZaneH/Blockchain-Mural.git
+$ git clone https://github.com/ZaneH/BlockchainMural.git BlockchainMural
+$ cd BlockchainMural
 ```
 
-Run a webserver inside the git directory – everything will work out of the box.
+2. Start the Go web server
+```bash
+$ go run server.go
+```
 
-The Go HTTP server is currently being served by a DigitalOcean Droplet I created while this project is in
-development. The IP address is `104.131.6.207`.
+3. Open `BlockchainMural/index.html` in a web browser
 
 ## Contributions
 Welcome
