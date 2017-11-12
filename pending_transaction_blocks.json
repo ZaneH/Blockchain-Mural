@@ -12,5 +12,13 @@
 			"timestamp": "12",
 			"data": "Wassup!"
 		}
+	],
+	"confirmed": [
+		{
+			"confirmee": "0",
+			"hash": "0",
+			"previousHash": "0",
+			"timestamp": "0"
+		}
 	]
 }
