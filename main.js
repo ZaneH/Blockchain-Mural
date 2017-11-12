@@ -1,38 +1,46 @@
-function generateHash(data) {
-  return sha256(data);
-}
+// this "genesis" transaction gives the first person something to confirm
+var genesisTransaction = {
+  nonce: "",
+  from: "",
+  timestamp: "",
+  data: ""
+};
 
-function generateValidHash() {
-  // this function uses generateHash() to generate
-  // hashes until the first 2 characters are letters from A-F
-  var dataSuffix = "Attempt: #";
-  var dataSuffixCounter = 0;
+var pendingTransactions = [genesisTransaction];
 
-  var voteData = document.getElementById('voteinput').value;
+/* Transaction Blocks
+ * This project is to demonstrate how a Blockchain works and
+ * as such isn't meant to hold any real value. In an applied
+ * Blockchain that holds value, a block would be made up of
+ * more than one transaction.
+ */
+var transactionBlocks = [];
 
-  var block = { // all values are strings for consistency
-    index: '0',
-    timestamp: (Math.floor(Date.now() / 1000)).toString(),
-    previousHash: '0',
-    data: voteData, // data will look like: "I vote for X Attempt: #X"
-    currentHash: '0'
+/* Confirm Pending Transaction
+ * Takes the most recent pending transaction and attempts to
+ * find a valid hash. A valid hash is one that starts with 2
+ * letters. 
+ * Invalid hash: "a4..."
+ * Valid hash: "bc..."
+ */
+function confirmPendingTransaction() {
+  workingTransaction = pendingTransactions[0];
+  workingHash = "";
+
+  var re = new RegExp("^[a-f]{2}");
+
+  do {
+    workingTransaction.nonce = Math.random().toString(); // prevents the same hash from being generated twice
+    workingHash = sha256(workingTransaction.nonce + workingTransaction.from + workingTransaction.timestamp + workingHash.data);
+  } while (re.exec(workingHash) == null);
+
+  var workingTransactionBlock = {
+    transaction: JSON.stringify(workingTransaction),
+    transactionBlockHash: workingHash.toString(),
+    previousTransactionBlockHash: '0',
+    date: (Math.floor(Date.now() / 1000)).toString()
   };
 
-  // if the hash doesn't start with 2 letters, loop
-  var re = new RegExp("^[a-f]{2}");
-  do {
-    // generate a hash with the given data
-    block.currentHash = generateHash(block.index + block.timestamp + block.previousHash +
-      block.data + " " + dataSuffix + dataSuffixCounter +
-      block.currentHash);
-
-    // increment the counter so that a unique hash can be generated if
-    // the first hash doesn't have a prefix of 2 letters
-    dataSuffixCounter++;
-    console.log("[-] Generated\t" + block.currentHash);
-  } while (re.exec(block.currentHash) == null);
-
-  // update block.data to contain the data of a valid hash
-  block.data = voteData + " " + dataSuffix + dataSuffixCounter;
-  console.log("[+] Found:\n" + JSON.stringify(block, null, 2));
+  console.log("[+] Found valid hash: " + workingHash);
+  console.log("[+] Generated a transaction block:\n" + JSON.stringify(workingTransactionBlock));
 }

@@ -2,12 +2,17 @@
 <html>
 <head>
   <title>UNCC Blockchain</title>
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </head>
   <body>
     <input type="text" name="votedata" id="voteinput">
-    <button onclick="generateValidHash();">Generate</button>
+    <button onclick="pullPendingTransactionBlocks();">Generate</button>
   </body>
 
+  <!-- I refuse to roll my own sha256 implementation -->
   <script type="text/javascript" src="./bower_components/js-sha256/src/sha256.js"></script>
+  <!-- deals with client side logic -->
   <script type="text/javascript" src="./main.js"></script>
+  <!-- deals with network logic -->
+  <script type="text/javascript" src="./network.js"></script>
 </html>
