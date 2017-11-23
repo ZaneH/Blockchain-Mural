@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"github.com/Jeffail/gabs"
 	"time"
+	"strconv"
 )
 
 type Blockchain struct {
@@ -53,6 +54,7 @@ func SubmitTransactionBlock(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
+	
 
 	fmt.Printf("%v\n\n", transactionJson)
 }
@@ -72,24 +74,24 @@ func SubmitVote(w http.ResponseWriter, r *http.Request) {
 }
 
 func WriteTransactionToFile(pubkey string, data string) {
-	dat, err := ioutil.ReadFile("./blockchain.json")
+	blockchainJson, err := ioutil.ReadFile("./blockchain.json")
 	if err != nil {
 		panic(err)
 	}
 
-	blockchain, err := gabs.ParseJSON(dat)
+	blockchain, err := gabs.ParseJSON(blockchainJson)
 
 	newTransaction := gabs.New()
 	newTransaction.Set("0", "nonce")
 	newTransaction.Set("0", "from")
-	newTransaction.Set(time.Now().Unix(), "timestamp")
+	newTransaction.Set(strconv.FormatInt(int64(time.Now().Unix()), 10), "timestamp")
 	newTransaction.Set(data, "data")
 	blockchain.ArrayAppend(newTransaction.Data(), "pending")
 
 	ioutil.WriteFile("blockchain.json", []byte(blockchain.StringIndent("", "  ")), 0644)
 }
 
-// print contents of pending_transaction_blocks.json in plain-text
+// print contents of blockchain.json in plain-text
 func PendingTransactionBlocks(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	http.ServeFile(w, r, "blockchain.json")

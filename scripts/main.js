@@ -18,7 +18,7 @@ class TransactionBlock {
 
 /* Pending Transactions
  * An array to hold the pending transactions on the Blockchain. This
- * data is pulled from the Go server's pending_transaction_blocks.json
+ * data is pulled from the Go server's blockchain.json
  */
 var pendingTransactions = [];
 
@@ -31,9 +31,9 @@ var pendingTransactions = [];
 var transactionBlocks = [];
 
 function startMining() {
-  // set transaction blocks to the pending_transaction_blocks.json file on the Go server
+  // set transaction blocks to the blockchain.json file on the Go server
   pullPendingTransactionBlocks(function(data) {
-    pendingTransactions = data["pending"]; // pending_transaction_blocks.json stores the blocks in a "pending" array
+    pendingTransactions = data["pending"]; // blockchain.json stores the blocks in a "pending" array
 
     // console.log("[+] Retrieved pending transactions:\n" + JSON.stringify(pendingTransactions, null, 2));
     console.log("[+] Retrieved pending transactions from network");
@@ -52,7 +52,7 @@ function createVote() {
 
   // PLEASE DO NOT USE THE GENERATED KEYS IN THE REAL WORLD
   var options = {
-      userIds: [{ name:"", email:"" }],
+      userIds: [{ name: "", email: "" }],
       numBits: 4096
   };
 
@@ -65,11 +65,13 @@ function createVote() {
     var privKeyObj = openpgp.key.readArmored(privkey).keys;
 
     var voteInput = document.getElementById("voteinput").value;
-    var voteToSign = new Transaction('0', 'ZANE', '0', voteInput);
+
+    // Transaction: nonce, from, timestamp, data
+    var voteToSign = new Transaction('0', generateSafeName(), '0', voteInput);
 
     var options = {
         data: JSON.stringify(voteToSign),
-        privateKeys: privKeyObj,
+        privateKeys: privKeyObj
     };
 
     console.log("[-] Signing vote...");
@@ -136,4 +138,34 @@ function confirmPendingTransaction() {
   console.log("[+] Hashes generated: " + hashCount);
   console.log("[+] Hash calculated in " + ((finish - start) / 1000).toString() + " seconds.");
   console.log("[+] Generated a transaction block:\n" + JSON.stringify(workingTransactionBlock, null, 2));
+}
+
+/* Generate Safe Name
+ * Generates a 'username' for the transaction. It'd be cool to let people
+ * choose their own names...but this will hopefully be on a college campus.
+ */
+function generateSafeName() {
+  adjectives = [
+    "Corny",
+    "Graphing",
+    "Laughing",
+    "Speedy",
+    "Rational",
+    "Leaping"
+  ];
+
+  nouns = [
+    "Hacker",
+    "Gopher",
+    "Rabbit",
+    "Diver",
+    "Cheetah",
+    "Boar"
+  ];
+
+  randomAdjectiveIndex = Math.floor((Math.random() * 100) % adjectives.length);
+  randomNounIndex = Math.floor((Math.random() * 100) % nouns.length);
+  randomIndex = Math.floor((Math.random() * 100));
+
+  return (adjectives[randomAdjectiveIndex] + nouns[randomNounIndex] + randomIndex).toString();
 }
