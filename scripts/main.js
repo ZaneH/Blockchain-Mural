@@ -31,11 +31,10 @@ var pendingTransactions = [];
 var transactionBlocks = [];
 
 function startMining() {
-  // set transaction blocks to the blockchain.json file on the Go server
+  // set transaction-blocks to the blockchain.json file on the Go server
   pullPendingTransactionBlocks(function(data) {
     pendingTransactions = data["pending"]; // blockchain.json stores the blocks in a "pending" array
 
-    // console.log("[+] Retrieved pending transactions:\n" + JSON.stringify(pendingTransactions, null, 2));
     console.log("[+] Retrieved pending transactions from network");
 
     confirmPendingTransaction();
@@ -68,6 +67,7 @@ function createVote() {
 
     // Transaction: nonce, from, timestamp, data
     var voteToSign = new Transaction('0', generateSafeName(), '0', voteInput);
+    var jsonVote = JSON.stringify(voteToSign);
 
     var options = {
         data: JSON.stringify(voteToSign),
@@ -80,14 +80,15 @@ function createVote() {
         console.log("[+] Signed vote");
 
         var postData = {
-          publickey: pubkey,
-          message: cleartext
+          publickey: pubkey, // public key
+          message: cleartext, // signed message
+          raw: jsonVote
         };
 
         // submits the postData variable to the Go server
         console.log("[-] Submitting vote to server...")
         submitVote(JSON.stringify(postData), function(response) {
-          console.log("[+] Server said: " + response);
+          console.log("[+] Server said: \"" + response + "\"");
         });
     });
   });
@@ -120,7 +121,7 @@ function confirmPendingTransaction() {
   } while (re.exec(workingHash) == null);
   var finish = performance.now();
 
-  // setting up the transaction block to submit as Proof of Work
+  // setting up the transaction-block to submit as Proof of Work
   var workingTransactionBlock = {
     confirmee: "none",
     hash: workingHash.toString(),
@@ -129,15 +130,16 @@ function confirmPendingTransaction() {
     transaction: JSON.stringify(workingTransaction)
   };
 
-  submitWorkingTransactionBlock(JSON.stringify(workingTransactionBlock), function() {
+  submitWorkingTransactionBlock(JSON.stringify(workingTransactionBlock), function(data) {
     // proof of work was submitted to server
+    console.log(data)
   });
 
   // debug
   console.log("[+] Found valid hash: " + workingHash);
   console.log("[+] Hashes generated: " + hashCount);
   console.log("[+] Hash calculated in " + ((finish - start) / 1000).toString() + " seconds.");
-  console.log("[+] Generated a transaction block:\n" + JSON.stringify(workingTransactionBlock, null, 2));
+  console.log("[+] Generated a transaction-block:\n" + JSON.stringify(workingTransactionBlock, null, 2));
 }
 
 /* Generate Safe Name
@@ -151,7 +153,8 @@ function generateSafeName() {
     "Laughing",
     "Speedy",
     "Rational",
-    "Leaping"
+    "Leaping",
+    "Sour"
   ];
 
   nouns = [
@@ -160,7 +163,8 @@ function generateSafeName() {
     "Rabbit",
     "Diver",
     "Cheetah",
-    "Boar"
+    "Boar",
+    "Santa"
   ];
 
   randomAdjectiveIndex = Math.floor((Math.random() * 100) % adjectives.length);

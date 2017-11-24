@@ -8,21 +8,21 @@
       "votes": [
         {
           "data": "SIGNED VOTE",
-          "from": "JobFarm9",
+          "from": "CornyHacker12",
           "nonce": "0.9832991855235",
           "timestamp": "12"
         }
       ]
     },
     {
-      "confirmee": "0",
+      "confirmee": "SourSanta49",
       "hash": "0",
       "previousHash": "0",
       "timestamp": "0",
       "votes": [
         {
           "data": "SIGNED VOTE",
-          "from": "RickRack3",
+          "from": "SpeedyGopher92",
           "nonce": "0.3382785822546",
           "timestamp": "3"
         }
@@ -33,14 +33,20 @@
     {
       "data": "SIGNED VOTE",
       "from": "RickRack3",
-      "nonce": "0.3382785822546",
+      "nonce": "0",
       "timestamp": "3"
     },
     {
       "data": "SIGNED VOTE",
       "from": "JobFarm9",
-      "nonce": "0.9832991855235",
+      "nonce": "0",
       "timestamp": "12"
+    },
+    {
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"nonce\":\"0\",\"from\":\"CornyBoar78\",\"timestamp\":\"0\",\"data\":\"I vote for Kyle\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaF6gpCRDvZm7pykuhLQAAOV8P+wcly/gqzYAPiBRZEln7\nFQpATb7ALVYGl1yXulQ7af30lIYbt1kED3owyXGPpdO8xkZalMqE0D79quG5\nhRux9/CAPon1LRZUOJY2oCOBRnuivreJNxrZG+G3gfwh5RDLt6jnQZRcRE85\nY13hQu95GZd1c5+cmyjPlR+R8FqmXEScJcHDBH9JKo9SLR8EJlNNlcYaRxEO\nwRKuSjNijrhl5HT49+2M6+LWt8wqHVQxz9NlWR+gnkY5BMWr1yyMjb9Z0l3D\n4t7uieNPciPDF/vaH4cvMP+GgtB+S6xBGc9/NNQr+Bpj6YZgT1m+Qg4Qpm3Z\nfPzpGMy7SwOVHqlYRoUuKchkQ4uPCZLcdCd9rchrEU1tDqAv5m0ZsB9eHxRi\nr1akMOXb2Ayo4NXeWcgXq1avtlEcdzgS9XNcL3Rw219/WZuZHfOjjXMvtYrn\nJeaSA5b/JOs6u9BB9u/2tIKblqrlmpticFE0rQeCKSB4O0G2ZYNYEVSxeyhz\nFKwC37HdIa68D5VAOPT2NHXYILFkCMyLB6BcHvlpyCs67Ek2uVl6ocoR7D/V\nse7gHYquLwiuAjUaWqSrcHU6itVvsC5CcBSwpTV+i6o5/LWfoSlOL3IXYnuz\nyqcqRxUvg6L/pBjQmvwuxho19msWNOEfTQSeiCxzHm9ZgGV2CVXZIL+2/WF+\nymHp\r\n=F57L\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "CornyBoar78",
+      "nonce": "0",
+      "timestamp": "1511499819"
     }
   ]
 }

@@ -17,10 +17,10 @@ type Blockchain struct {
 }
 
 type Transaction struct {
-	nonce string
-	from string
-	timestamp string
-	data string
+	Nonce string
+	From string
+	Timestamp string
+	Data string
 }
 
 type TransactionBlock struct {
@@ -34,12 +34,13 @@ type TransactionBlock struct {
 type VoteData struct {
 	PublicKey string
 	Message string
+	Raw string
 }
 
 func main() {
 	http.HandleFunc("/", UnhandledRequest)
 	http.HandleFunc("/submit_transaction_block", SubmitTransactionBlock)
-	http.HandleFunc("/submit_vote", SubmitVote);
+	http.HandleFunc("/submit_vote", ProcessVote);
 	http.HandleFunc("/blockchain.json", PendingTransactionBlocks)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
@@ -48,18 +49,19 @@ func main() {
 func SubmitTransactionBlock(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
-	jsonBody, err := ioutil.ReadAll(r.Body)
-	transactionJson, err := gabs.ParseJSON(jsonBody)
-	if err != nil {
-		panic(err)
-	}
+	// jsonBody, err := ioutil.ReadAll(r.Body)
+	// transactionJson, err := gabs.ParseJSON(jsonBody)
 
-	
+	// if err != nil {
+	// 	panic(err)
+	// }
 
-	fmt.Printf("%v\n\n", transactionJson)
+	// TODO: Verify the transaction-block is valid
+
+	// fmt.Printf("%v\n\n", transactionJson)
 }
 
-func SubmitVote(w http.ResponseWriter, r *http.Request) {
+func ProcessVote(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	decoder := json.NewDecoder(r.Body)
@@ -70,25 +72,32 @@ func SubmitVote(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	WriteTransactionToFile(jsonData.PublicKey, jsonData.Message)
+
+
+	fmt.Fprintf(w, "Thanks!")
+	WritePendingTransactionToFile(jsonData.PublicKey, jsonData.Message, jsonData.Raw)
 }
 
-func WriteTransactionToFile(pubkey string, data string) {
+func WritePendingTransactionToFile(pubkey string, message string, raw string) {
 	blockchainJson, err := ioutil.ReadFile("./blockchain.json")
+
 	if err != nil {
 		panic(err)
 	}
 
 	blockchain, err := gabs.ParseJSON(blockchainJson)
+	transaction, err := gabs.ParseJSON([]byte(raw))
 
+	// creates a transaction to be sent to "pending"
 	newTransaction := gabs.New()
-	newTransaction.Set("0", "nonce")
-	newTransaction.Set("0", "from")
+	newTransaction.Set(transaction.Path("nonce").Data(), "nonce")
+	newTransaction.Set(transaction.Path("from").Data(), "from")
 	newTransaction.Set(strconv.FormatInt(int64(time.Now().Unix()), 10), "timestamp")
-	newTransaction.Set(data, "data")
+	newTransaction.Set(message, "data")
 	blockchain.ArrayAppend(newTransaction.Data(), "pending")
 
 	ioutil.WriteFile("blockchain.json", []byte(blockchain.StringIndent("", "  ")), 0644)
+	fmt.Println("[+] Wrote pending transaction to file")
 }
 
 // print contents of blockchain.json in plain-text
