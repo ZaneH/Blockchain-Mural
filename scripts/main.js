@@ -1,6 +1,5 @@
 class Transaction {
-  constructor(nonce, from, timestamp, data) {
-    this.nonce = nonce;
+  constructor(from, timestamp, data) {
     this.from = from;
     this.timestamp = timestamp;
     this.data = data;
@@ -66,7 +65,7 @@ function createVote() {
     var voteInput = document.getElementById("voteinput").value;
 
     // Transaction: nonce, from, timestamp, data
-    var voteToSign = new Transaction('0', generateSafeName(), '0', voteInput);
+    var voteToSign = new Transaction(generateSafeName(), Date.now().toString(), voteInput);
     var jsonVote = JSON.stringify(voteToSign);
 
     var options = {
@@ -101,6 +100,8 @@ function createVote() {
  * Valid hash: "00002227b3cb6725bfd56300b29b79373cfe50eb6a441a07e1de49bed90b2383"
  */
 function confirmPendingTransaction() {
+  // workingTransaction is the most recent transaction on the blockchain
+  // it's used later as its own "Proof of Work" (https://en.wikipedia.org/wiki/Proof-of-work_system)
   var workingTransaction = pendingTransactions[0];
   var workingHash = "";
 
@@ -147,7 +148,7 @@ function confirmPendingTransaction() {
  * choose their own names...but this will hopefully be on a college campus.
  */
 function generateSafeName() {
-  adjectives = [
+  var adjectives = [
     "Corny",
     "Graphing",
     "Laughing",
@@ -157,7 +158,7 @@ function generateSafeName() {
     "Sour"
   ];
 
-  nouns = [
+  var nouns = [
     "Hacker",
     "Gopher",
     "Rabbit",

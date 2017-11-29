@@ -31,22 +31,16 @@
   ],
   "pending": [
     {
-      "data": "SIGNED VOTE",
-      "from": "RickRack3",
-      "nonce": "0",
-      "timestamp": "3"
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"from\":\"CornyHacker4\",\"timestamp\":\"1511926296547\",\"data\":\"I vote Kyle\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaHioZCRAeloWFMnIc5gAAAGMP/A8cP/CxLPXMOb8mcGrT\ndS5SV8sIG7TSHyZtxktnQ4fN3b+YJvM8gUjulmJW6dUUm+k37IRdd3N73Hvo\nRdOwaLS5RuRT6cV1PN4XyL4jwyNP/j2ZUb1n2aQ2LW9SmhVlQ49D+ISs+HYk\nTdKXdiybS/gARghvrNMXf6BKfprK9TFJ80cjgxU5UHhzXBOaSe49JQTBQuDG\nFcLDbihJP6sfCtC1Ddei0d1QIs4NJolJ0vJEBfpt/Mh4HcGkRmB3iuowK+Og\nLDKgKcChH7jagWaqNaY0hV5iMyaDvhwb5uDrO7TNDzdI5102LVRKLwmiW9q2\n9z47FpbmnwTqUHwdXh4i4DdWXeT+A8xr2WbridOkk+6Niam887aX7Ix/3Enz\nP2TEGMi9CxPq7dlbnZTr1omySjeermoFUOvTJmPIL59evfq2LQI+hcr3XnH4\nhnpW4diC/pNYa/zSmLlo4bppCAiAcNpOpoqQL//joyY7PkYP07bQ5so91DQ4\n4avDMTI9lAao050/4XgU1EbWrsGmKy3mgrwB2Fp73QH5FSrsvVHEQV8Y+5xo\nAJmvByUWa8qh9qfLvfTt5bvHf8IZw0LM+ukAO0vitWS0GrasypbmhjHLolz8\nFKYMKJYr6qIuz0utuaER96sQWhBNH4gS5alZe8j15mZBYXzL0xG29AQ+sStI\njdN7\r\n=7cVY\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "CornyHacker4",
+      "previousHash": {},
+      "timestamp": "1511926298"
     },
     {
-      "data": "SIGNED VOTE",
-      "from": "JobFarm9",
-      "nonce": "0",
-      "timestamp": "12"
-    },
-    {
-      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"nonce\":\"0\",\"from\":\"CornyBoar78\",\"timestamp\":\"0\",\"data\":\"I vote for Kyle\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaF6gpCRDvZm7pykuhLQAAOV8P+wcly/gqzYAPiBRZEln7\nFQpATb7ALVYGl1yXulQ7af30lIYbt1kED3owyXGPpdO8xkZalMqE0D79quG5\nhRux9/CAPon1LRZUOJY2oCOBRnuivreJNxrZG+G3gfwh5RDLt6jnQZRcRE85\nY13hQu95GZd1c5+cmyjPlR+R8FqmXEScJcHDBH9JKo9SLR8EJlNNlcYaRxEO\nwRKuSjNijrhl5HT49+2M6+LWt8wqHVQxz9NlWR+gnkY5BMWr1yyMjb9Z0l3D\n4t7uieNPciPDF/vaH4cvMP+GgtB+S6xBGc9/NNQr+Bpj6YZgT1m+Qg4Qpm3Z\nfPzpGMy7SwOVHqlYRoUuKchkQ4uPCZLcdCd9rchrEU1tDqAv5m0ZsB9eHxRi\nr1akMOXb2Ayo4NXeWcgXq1avtlEcdzgS9XNcL3Rw219/WZuZHfOjjXMvtYrn\nJeaSA5b/JOs6u9BB9u/2tIKblqrlmpticFE0rQeCKSB4O0G2ZYNYEVSxeyhz\nFKwC37HdIa68D5VAOPT2NHXYILFkCMyLB6BcHvlpyCs67Ek2uVl6ocoR7D/V\nse7gHYquLwiuAjUaWqSrcHU6itVvsC5CcBSwpTV+i6o5/LWfoSlOL3IXYnuz\nyqcqRxUvg6L/pBjQmvwuxho19msWNOEfTQSeiCxzHm9ZgGV2CVXZIL+2/WF+\nymHp\r\n=F57L\r\n-----END PGP SIGNATURE-----\r\n",
-      "from": "CornyBoar78",
-      "nonce": "0",
-      "timestamp": "1511499819"
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"from\":\"GraphingHacker86\",\"timestamp\":\"1511926367390\",\"data\":\"I vote Kyle\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaHipfCRAOuQWyK/VY7AAAXuoP/RrmSKY1Nn4xBeBt9ZLX\nzBDXCcEbMWnl9Ou87afQ2JB+ACGXYHgZNQhguy0AOCyHHZfABbSXp6lEqiYD\nJzkny4dtRTj7uL273pRFKQTU1FwHY3/UwdBsWnvzfZP1n92oDJ0Oc3oHqWLF\n8n39fKKAoYs8KwPI0blXe6Lpdg6MdYDXWVAka3MNRuCdLiDkv/ge4Mbj8g22\n8QnJUq6VDhuGhidxX7OnLjKYBMpdgGThHL6rieXochYarkCfQe51mXY4fOfD\notWEPBAloXDvG1+2wXEDmqIGPh/YDimQVLZQHBKjunyrFMq+JXtFfVS9k/qz\nwb6LhtqnQj8hzpyRMk9vTMPl4CMwZFI2j8Eq05BdO61KAWMl4NgAXMlU1mfw\nS3k6c8aUnkRNDxPw7Vc8j11vpE6LnzgV4gtrcfA6V9+ypAsVndpT69E/S0xT\nYmwBLDHx4gMiXKn0NLGFGYe/FXtCg4gfvZk3HacFFFXLMHjxbxgtivrMo49v\n4n1wnIWntbBFlAwMlaCOhWZMt/hmRAW0NQmvc9gkwI96yyO9fMGx7QHlkMet\nD1OH4+fqIvYxdJbttoYBFre05v+qeH7WcNAvuyrp/nSHw4qTjruoCSWnstYb\niLBMTRZ/DbBp2I8PzebA6HRHUifyd4OtbsUO9vSBv/sGPeJXHMlOk5W/L3pi\npUCG\r\n=0QZ9\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "GraphingHacker86",
+      "previousHash": "0",
+      "timestamp": "1511926369"
     }
   ]
 }
