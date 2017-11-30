@@ -49,16 +49,28 @@ func main() {
 func SubmitTransactionBlock(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
-	// jsonBody, err := ioutil.ReadAll(r.Body)
-	// transactionJson, err := gabs.ParseJSON(jsonBody)
+	jsonBody, err := ioutil.ReadAll(r.Body)
+	transaction, err := gabs.ParseJSON(jsonBody)
 
-	// if err != nil {
-	// 	panic(err)
-	// }
+	blockchainJson, err := ioutil.ReadFile("./blockchain.json")
+	blockchain, err := gabs.ParseJSON(blockchainJson)
 
-	// TODO: Verify the transaction-block is valid
+	if err != nil {
+		panic(err)
+	}
 
-	// fmt.Printf("%v\n\n", transactionJson)
+	// sets the previous hash to the hash of the block before it
+	confirmedTransactions, _ := blockchain.Path("confirmed").Children()
+	previousTransaction := confirmedTransactions[len(confirmedTransactions) - 1]
+
+	transaction.Set(previousTransaction.Path("hash").Data(), "previousHash")
+	blockchain.ArrayAppend(transaction.Data(), "confirmed")
+
+	blockchain.Path("pending").Index(0).Set("")
+
+	ioutil.WriteFile("blockchain.json", []byte(blockchain.StringIndent("", "  ")), 0644)
+
+	fmt.Printf("%v\n\n", transaction)
 }
 
 func ProcessVote(w http.ResponseWriter, r *http.Request) {
@@ -88,13 +100,11 @@ func WritePendingTransactionToFile(pubkey string, message string, raw string) {
 
 	// creates a transaction to be sent to "pending"
 	newTransaction := gabs.New()
+	newTransaction.Set(transaction.Path("hash").Data(), "hash")
 	newTransaction.Set(transaction.Path("from").Data(), "from")
 	newTransaction.Set(strconv.FormatInt(int64(time.Now().Unix()), 10), "timestamp")
 	newTransaction.Set(message, "data")
-	// sets the previous hash
-	confirmedTransactions, _ := blockchain.Path("confirmed").Children()
-	previousTransaction := confirmedTransactions[len(confirmedTransactions) - 1]
-	newTransaction.Set(previousTransaction.Path("hash").Data(), "previousHash")
+
 	blockchain.ArrayAppend(newTransaction.Data(), "pending")
 
 	ioutil.WriteFile("blockchain.json", []byte(blockchain.StringIndent("", "  ")), 0644)

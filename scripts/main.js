@@ -1,8 +1,9 @@
 class Transaction {
-  constructor(from, timestamp, data) {
+  constructor(from, timestamp, data, hash) {
     this.from = from;
     this.timestamp = timestamp;
     this.data = data;
+    this.hash = hash;
   }
 }
 
@@ -14,6 +15,8 @@ class TransactionBlock {
     this.timestamp = timestamp;
   }
 }
+
+var username = generateSafeName();
 
 /* Pending Transactions
  * An array to hold the pending transactions on the Blockchain. This
@@ -29,11 +32,16 @@ var pendingTransactions = [];
  */
 var transactionBlocks = [];
 
-function startMining() {
-  // set transaction-blocks to the blockchain.json file on the Go server
-  pullPendingTransactionBlocks(function(data) {
-    pendingTransactions = data["pending"]; // blockchain.json stores the blocks in a "pending" array
+/* Blockchain
+ * Will store the contents of the blockchain as JSON
+ */
+var blockchain;
 
+function startMining() {
+  // set pendingTransactions to the blockchain.json file on the Go server
+  pullPendingTransactionBlocks(function(data) {
+    blockchain = data;
+    pendingTransactions = blockchain["pending"]; // blockchain.json stores the blocks in a "pending" array
     console.log("[+] Retrieved pending transactions from network");
 
     confirmPendingTransaction();
@@ -64,8 +72,9 @@ function createVote() {
 
     var voteInput = document.getElementById("voteinput").value;
 
-    // Transaction: nonce, from, timestamp, data
-    var voteToSign = new Transaction(generateSafeName(), Date.now().toString(), voteInput);
+    // Transaction: from, timestamp, data, hash
+    var voteToSign = new Transaction(username, Date.now().toString(), voteInput, '0');
+    voteToSign.hash = sha256(voteToSign.from + voteToSign.timestamp + voteToSign.data + voteToSign.hash);
     var jsonVote = JSON.stringify(voteToSign);
 
     var options = {
@@ -75,7 +84,7 @@ function createVote() {
 
     console.log("[-] Signing vote...");
     openpgp.sign(options).then(function(signed) {
-        cleartext = signed.data;
+        var cleartext = signed.data;
         console.log("[+] Signed vote");
 
         var postData = {
@@ -116,7 +125,7 @@ function confirmPendingTransaction() {
   var start = performance.now();
   do {
     workingTransaction.nonce = Math.random().toString(); // prevents the same hash from being generated twice
-    workingHash = sha256(workingTransaction.nonce + workingTransaction.from + workingTransaction.timestamp + workingHash.data); // calculates hash from transaction
+    workingHash = sha256(workingTransaction.nonce + workingTransaction.from + workingTransaction.timestamp + workingHash.data + workingHash.previousHash); // calculates hash from transaction
 
     hashCount++;
   } while (re.exec(workingHash) == null);
@@ -124,11 +133,11 @@ function confirmPendingTransaction() {
 
   // setting up the transaction-block to submit as Proof of Work
   var workingTransactionBlock = {
-    confirmee: "none",
+    confirmee: username,
     hash: workingHash.toString(),
     previousHash: '0',
     timestamp: (Math.floor(Date.now() / 1000)).toString(),
-    transaction: JSON.stringify(workingTransaction)
+    transaction: JSON.stringify(workingTransaction["data"])
   };
 
   submitWorkingTransactionBlock(JSON.stringify(workingTransactionBlock), function(data) {
@@ -137,10 +146,13 @@ function confirmPendingTransaction() {
   });
 
   // debug
-  console.log("[+] Found valid hash: " + workingHash);
-  console.log("[+] Hashes generated: " + hashCount);
-  console.log("[+] Hash calculated in " + ((finish - start) / 1000).toString() + " seconds.");
-  console.log("[+] Generated a transaction-block:\n" + JSON.stringify(workingTransactionBlock, null, 2));
+  var logMessage = "[+] Found valid hash: " + workingHash + "\n" +
+  "[+] Hashes generated: " + hashCount + "\n" +
+  "[+] Hash calculated in " + ((finish - start) / 1000).toString() + " seconds." + "\n" +
+  "[+] Generated a transaction-block:\n";
+  // alert(logMessage);
+  console.log(logMessage);
+  console.log(workingTransactionBlock);
 }
 
 /* Generate Safe Name
