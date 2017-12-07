@@ -12,6 +12,9 @@
     <!-- both lead to function calls in main.js -->
     <button onclick="createVote();">Generate</button>
     <button onclick="startMining();">Confirm</button>
+    <br>
+    <br>
+    <textarea id="log" cols="40" rows="25"></textarea>
     <!-- I refuse to roll my own sha256 implementation -->
     <!-- https://github.com/emn178/js-sha256 -->
     <script type="text/javascript" src="./bower_components/js-sha256/build/sha256.min.js"></script>
@@ -25,6 +28,16 @@
     <script type="text/javascript">
     // during development, Firefox was caching blockchain.json
     $.ajaxSetup({ cache: false });
+    
+    // custom console.log()
+    if (window.console) {
+    console.original_log = console.log;
+    console.log = function(str) {
+    var log_area = document.getElementById("log");
+    log_area.innerHTML += str + "\n";
+    console.original_log(str);
+    }
+    }
     </script>
   </body>
 </html>

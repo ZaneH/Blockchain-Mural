@@ -69,7 +69,7 @@ function createVote() {
   // generates a key-pair (public and private)
   // this will be used later to sign the transaction and verify the contents
 
-  // PLEASE DO NOT USE THE GENERATED KEYS IN THE REAL WORLD
+  // PLEASE DO *NOT* USE THESE GENERATED KEYS IN THE REAL WORLD
   var options = {
       userIds: [{ name: "", email: "" }],
       numBits: 4096
@@ -130,9 +130,10 @@ function confirmPendingTransaction() {
   // counts how many hashes were generated before one is found
   var hashCount = 0;
 
-  // regex filter to validate hash requirements ("0000" prefix)
+  // regex filter to validate hash requirements ("00000" prefix)
   // this prefix is entirely arbitrary and is what determines the "difficulty"
-  var re = new RegExp("^0000");
+  // on a smartphone, this takes about 1 - 10 seconds to find
+  var re = new RegExp("^00000");
 
   // the start and finish variables let us time the hash calculation
   var start = performance.now();
@@ -148,7 +149,7 @@ function confirmPendingTransaction() {
   var workingTransactionBlock = {
     confirmee: username,
     hash: workingHash.toString(),
-    previousHash: '0',
+    previousHash: '0', // this is set on the server
     timestamp: (Math.floor(Date.now() / 1000)).toString(),
     transaction: JSON.stringify(workingTransaction["data"])
   };
