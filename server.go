@@ -61,16 +61,23 @@ func SubmitTransactionBlock(w http.ResponseWriter, r *http.Request) {
 
 	// sets the previous hash to the hash of the block before it
 	confirmedTransactions, _ := blockchain.Path("confirmed").Children()
-	previousTransaction := confirmedTransactions[len(confirmedTransactions) - 1]
+	// make sure confirmedTransactions actually has a previous block
+	if (len(confirmedTransactions) > 0) {
+		previousTransaction := confirmedTransactions[len(confirmedTransactions) - 1]
+		transaction.Set(previousTransaction.Path("hash").Data(), "previousHash")
+	} else {
+		transaction.Set("0000000000000000000000000000000000000000000000000000000000000000", "previousHash")
+	}
 
-	transaction.Set(previousTransaction.Path("hash").Data(), "previousHash")
+	// add the transaction to the confirmed transactions
 	blockchain.ArrayAppend(transaction.Data(), "confirmed")
 
-	blockchain.Path("pending").Index(0).Set("")
+	// removes the most recent transaction (this might be dangerous...)
+	blockchain.ArrayRemoveP(0, "pending")
 
 	ioutil.WriteFile("blockchain.json", []byte(blockchain.StringIndent("", "  ")), 0644)
 
-	fmt.Printf("%v\n\n", transaction)
+	// fmt.Printf("%v\n\n", transaction)
 }
 
 func ProcessVote(w http.ResponseWriter, r *http.Request) {

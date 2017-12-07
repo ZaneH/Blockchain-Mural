@@ -1,3 +1,6 @@
+// This project is open-source!
+// https://github.com/ZaneH/BlockchainMural
+
 class Transaction {
   constructor(from, timestamp, data, hash) {
     this.from = from;
@@ -28,7 +31,9 @@ var pendingTransactions = [];
  * This project is to demonstrate how a Blockchain works and
  * as such isn't meant to hold any real value. In an applied
  * Blockchain that holds value, a block would be made up of
- * more than one transaction.
+ * more than one transaction. These blocks of transactions
+ * would store a 'fee' and the block would also have a bonus
+ * that any miner would then receive.
  */
 var transactionBlocks = [];
 
@@ -44,7 +49,15 @@ function startMining() {
     pendingTransactions = blockchain["pending"]; // blockchain.json stores the blocks in a "pending" array
     console.log("[+] Retrieved pending transactions from network");
 
-    confirmPendingTransaction();
+    /* TODO: This needs to be revisited later. Should miners be able
+     * to confirm a transaction multiple times? Should the site
+     * make people generate a transaction before confirming one?
+     */
+    if (pendingTransactions.length < 1) {
+      console.log("[-] There are no pending transactions to mine.")
+    } else {
+      confirmPendingTransaction();
+    }
   });
 }
 
@@ -167,7 +180,12 @@ function generateSafeName() {
     "Speedy",
     "Rational",
     "Leaping",
-    "Sour"
+    "Sour",
+    "Raspy",
+    "Jaded",
+    "Green",
+    "Loud",
+    "Casual"
   ];
 
   var nouns = [
@@ -177,7 +195,11 @@ function generateSafeName() {
     "Diver",
     "Cheetah",
     "Boar",
-    "Santa"
+    "Santa",
+    "Bot",
+    "Lion",
+    "Stork",
+    "Rhino"
   ];
 
   randomAdjectiveIndex = Math.floor((Math.random() * 100) % adjectives.length);

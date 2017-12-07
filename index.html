@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>UNCC Blockchain</title>
-  <meta charset="UTF-8">
-  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-</head>
+  <head>
+    <title>UNCC Blockchain</title>
+    <meta charset="UTF-8">
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  </head>
   <body>
+    <!-- this project is open-source! -->
+    <!-- https://github.com/ZaneH/BlockchainMural -->
     <input type="text" id="voteinput">
     <!-- both lead to function calls in main.js -->
     <button onclick="createVote();">Generate</button>
     <button onclick="startMining();">Confirm</button>
+    <!-- I refuse to roll my own sha256 implementation -->
+    <!-- https://github.com/emn178/js-sha256 -->
+    <script type="text/javascript" src="./bower_components/js-sha256/build/sha256.min.js"></script>
+    <!-- openpgp cryptographic library -->
+    <!-- https://github.com/openpgpjs/openpgpjs -->
+    <script type="text/javascript" src="./bower_components/openpgp/dist/openpgp.min.js"></script>
+    <!-- deals with client side logic -->
+    <script type="text/javascript" src="./scripts/main.js"></script>
+    <!-- deals with network logic -->
+    <script type="text/javascript" src="./scripts/network.js"></script>
+    <script type="text/javascript">
+    // during development, Firefox was caching blockchain.json
+    $.ajaxSetup({ cache: false });
+    </script>
   </body>
-
-  <!-- I refuse to roll my own sha256 implementation -->
-  <!-- https://github.com/emn178/js-sha256 -->
-  <script type="text/javascript" src="./bower_components/js-sha256/build/sha256.min.js"></script>
-  <!-- openpgp cryptographic library -->
-  <!-- https://github.com/openpgpjs/openpgpjs -->
-  <script type="text/javascript" src="./bower_components/openpgp/dist/openpgp.min.js"></script>
-  <!-- deals with client side logic -->
-  <script type="text/javascript" src="./scripts/main.js"></script>
-  <!-- deals with network logic -->
-  <script type="text/javascript" src="./scripts/network.js"></script>
 </html>
