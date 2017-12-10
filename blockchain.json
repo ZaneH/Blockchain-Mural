@@ -1,0 +1,53 @@
+{
+  "confirmed": [],
+  "pending": [
+    {
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"from\":\"SourHacker70\",\"timestamp\":\"1512923577861\",\"data\":\"I vote for Ron\",\"hash\":\"028d50c7e3d674784eef8ded947988bc7e278af63872d4d44b099a8ee117fc77\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaLWG6CRAJRsWTgy2X/AAAf/gP/1cnt4F/QeR1kZkfSiwH\n4PKTim/QKswRHuOfhxs9pCMkiWb3oBAH/SEPGsmXVdd8VwqEM9955ThbyzMw\nOjbRUAQp/Rr3oabiBqe4DTmgHzWFJhbglhTdaP+AEMUU8wuRAEb/DkbyRlJS\nQazagzH2hc3D7SRIWMmAakXA8HGBsJT3Sag1acAZyBL3yFDdA33ss+65rrWX\n6pGODoMj/dtNuoRAX2HilcasPJHBsvjWoRtGYN06sv2zDE4Z/GIudCF8leJx\nqj+LOxzz5a+1H8sWJaYOlJhHHN3nYJ/RIbXsqryUJsVIaDkmUUTjNV8B7RZC\nScoa2L97Gty01Eeg+hMau3KJQb1Lehg2oRjc0AbO9j9MF3frNU/+XIzL3uBP\nGdqj+HcGhUCzMiSchqXXZ3pvOc4UF4wrbQ96R9HJ75TWeY0dblRMsM2BIYwa\nmdgCyUFs5xYi8S9voyoatzT+Ngme/2q3vjXR44WwmfnAID6sceEzhCsgljb/\nsO4CXltzBfM/VA4xv5rioCZulmPg4ttm5qyt3E0siK4jNIFWHEcQQ/7pfgO2\ny5sc6blORQ9nTVmeikJ4fJtx+Cu653wce/xH0khCoZHlUPlz1BlOr4/kL8r8\nwlIxdzL3nIP67JQr7k8A7QQwABADQ8+99wGT9z4Db3B4lk6SreZxJw2axTNl\nSiBl\r\n=/QiJ\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "SourHacker70",
+      "hash": "028d50c7e3d674784eef8ded947988bc7e278af63872d4d44b099a8ee117fc77",
+      "timestamp": "1512923758"
+    },
+    {
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"from\":\"SourHacker70\",\"timestamp\":\"1512923605325\",\"data\":\"I vote for Ron\",\"hash\":\"399df8a627ea4835f02d418ad5446ed6151d6c6e6e2c84eb69180151b79c76fd\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaLWHVCRCypGwXrHY7/QAAcqEP/Rtc9e3oZfYEB7Ru1PQS\nC862iINRnmuh/22BbmxWA11EQJHpmuPrgEDB7FEOeen/ZdIzEL40NuO7Jrto\nD52R93ivgOGNyePtuZq/CP4yqcrC8K0dpjMmPG1fVTFlXy73EH5vgX9zUEVn\n4wKliK9QG3+kzJXydATrON2hXTM4A1cM2sbQpYbMGy/AZLd0BCkaeVmSFe0A\ncqEe2quQtksaf8opPTGI3KiydwUqHcwQcVkVHYmaWtOYsY5/M5Q5iiH0gKZF\n06ZH2/zJ3efLiILHFY4p189Lwc909IHYc8HNnZS4MhvGKmCyOD9nEnOerl2X\nLDZ86AvXet3UsXjXjELeikiiyJC0u88MF1hpBZ5RFrWsFr7sK2oxNXcmjnzf\nwVwydGq2YxJqAYHRpxDSXP7Bt+5/lGavyEKQVJnHsmEY0K/pEUNeDlJmzGjX\npDyBFFXo9sd4/CRajK9ZbEhs2LvGQV6FT7CV4V7DQN1J01fLo6Y35lLyWALB\nqnGON8C+bNTqFHzRxhuTYHRyn87eiApMYk2VACE2/8QVO5T1nZd1Ode0abvq\nclOhAFImDQng1ZWH7VLEJonTnLnKgKo1PNN0yZDts0wNbOi0SFB26S4rJ4bj\nHnwmnjBlNE6cEYR6LentgmxwbxyeqV0xKg4jvkyJOZyzD8LArlC+5Hp6XT2d\nAo09\r\n=wRJy\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "SourHacker70",
+      "hash": "399df8a627ea4835f02d418ad5446ed6151d6c6e6e2c84eb69180151b79c76fd",
+      "timestamp": "1512923785"
+    },
+    {
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"from\":\"LaughingRhino0\",\"timestamp\":\"1512924264251\",\"data\":\"I vote for Ron\",\"hash\":\"619bf5cd300a20c58632e1a4224ba85e723e5fade628b7abfaaae8c7df10e764\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaLWRoCRDmVsK1hl+TIwAAe3IP/2Ulxlk2Z5M6sbkRe1re\nOx317KAr5MUzvhODXFu52elKNfKySpjvFI7q0yIk1Rzj+ZyYI+ya/pXyRYFz\nblIkI9P8BmzYbxeHMhw8e53X8PZ4piUS4OlxVBACu2teGY3CI9bQXPayTevi\nic7cqx+a9zSdRXS+ghTrV3ZZSbJbHD1RZdCD5qsBhSAylsZfuCEb1T/ptOCo\ndDbtTYDnUxrLrhigAiwWZ0dzUqtFVKeMGXr+z29Xd/nbzoiiBN+HuEFRvQaH\nNdjvcdkbgXJntKBYEavCRMeUWEOkHU2l4ClHpY1vneGeX9vTi5/8LLLAC80A\nZNULLOjkby9SEOGagAq89mOk5G1JyaGZBgTHtw12e7N01oeoCGgGBQ//2MaB\n4j/j8kDdx9d/5UfeBZXzM0e+c63jdq/F1GvdA5jRaRlNIunhv9BOhEW5NOwD\nZzCVDmnKtxaSDPHpydynjlRgO+kjkXY/0nHtGGYpCNsmcQdR7uqkXR9E1PPp\nSjrthx/nkuptYj1gKOKKppbyQMgBCNYDKiYJEUP5jPx0EFaC6DYsJoDcBmxi\nBPVtPmJvmv+QmqGyABpKeAOz16ivUpCpNAhlJ4thTJsceJGp0/Pi7P14PQUm\nmO5Q9dTpZshpOVgbQHRhwTlobQfZlYArlrA0H+Lzq3DBbBiwgbh2zxeUl4X+\nPAn1\r\n=R63K\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "LaughingRhino0",
+      "hash": "619bf5cd300a20c58632e1a4224ba85e723e5fade628b7abfaaae8c7df10e764",
+      "timestamp": "1512924445"
+    },
+    {
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"from\":\"LoudSanta54\",\"timestamp\":\"1512924288255\",\"data\":\"I vote for Ronald\",\"hash\":\"62a451cfdc0ac22a782aab2626e45b3e1ae27df031635b6d347f4ab5e1d78b8d\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaLWSACRBztbWFNu/tNwAAA04P/132yDvLYZ8Kd9ebeDU/\nnFvwD67rpTr+DQ/cd3xnRFww+7TzLm4FWj05JnH5tE/pe4ltvoplci+WZIkY\nMGiBjIEe1qiSiV9119u0cl4+wuF0l+ISSyTyT/9H1BcB/YtMx0z9Es/qDQLn\neX+w1hJryY7CM7I29oa5fni3twDFkKBs/lngPfF3nnzShLdB+rKKUrp2x0ox\ntgm3H54vDqxMqb4k1R7I5yEmNnkesZzFevefBMEba8hXrrVsKhvyT/LPtQJK\neG2ojd8BMn4QWQjMZdzRMMxfQRNDnw+Vj3ZxeJNYpMgjxeW9JgPETe+qL/T5\nD759cmZQa3P5qa9u9JqSGx6Cy/1NPmN6/B7LagYeBPwcgFreHiwxoeeYInwy\nFAl1ALGasD/EGFofqROM3kjJe9JzX+s3khs47fdH14J5/uswJ8Ah1fPN7+CZ\ng+jKs4zr2JFxJoeHo349pMnx3OzsUGW5ikhsbGfqORyRVLhco52Ewo2X074Q\n0flpl2sgoEN3SGYl68LxNzbvicqIhneuctyy8XpIv0TXLBhBd78llf4k6DZ/\nxiXkn/FGcdqIi3WvsAuwKv9EyXjEEaoUnprFkml22Hn2iRva3oEMvF+Rnh2m\npbGS1qHpLgU1gxDHcX19y+2zZPO2/1pyo2+gBwsxAtHKmoyYT50idCXVPwV7\nMl6g\r\n=nywG\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "LoudSanta54",
+      "hash": "62a451cfdc0ac22a782aab2626e45b3e1ae27df031635b6d347f4ab5e1d78b8d",
+      "timestamp": "1512924469"
+    },
+    {
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"from\":\"LoudSanta54\",\"timestamp\":\"1512924398772\",\"data\":\"I vote for Ronald\",\"hash\":\"983cda4baefd136724c69147cd7aa95903db3706397fb8ab906243d566491dba\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaLWTvCRAfMfxpx5ubhwAA3UwQAMC39ZldBFecnJDQnXn1\nNSLi6m6JbAdXf87GDDSDqlta/OONUecXN/0Id1oolsLB8jHtNwi1s8nOAaBt\nyGDHTejXo7vRKigTK8Pxjnm2K3bsN2b7pd4CRmVDtckJJoVV2KEswrlUuOHV\n+2CQNm1LM2q8lX6AIcMfIe0MdCiBbrdkNBxFG1CiLPymnA8t9xx8uprf2rBx\nKpw5XIyR87uIhmO9E72FhgJMKzQXXb2hKH1ztcyf0GDix1txhNoVY0QNe/pn\nh1QP21NwGMSxbQdfvWp8HGwQQoDwinYwMOE2bgzAcwmFARydKokbE3PV19Ei\nprecmLuerwz6/zqyJs6GApYQ0sXlp1U+215p2BobB8rTaTaXSESV9ua1ymjv\nflWI9qE+quVmLSISuciB2X4sAPJl4rJErWgCvmbqANytGUYp1JBofsgGxaNv\ntUXAIdDJyoiY0Gm+C/kPjeSfAJx9dow7/tcVT38V1ERfxbqhKNAV00+ngXpR\nD+efQEQI0jZOivlloyNmXs5gJwUVXox+W9rlEcehWYOmiLOaYokZnWFLCBYR\nHICTXJBqzas8napAwIOaHi5JAJvVRSOZZ5ig0htVHzqK0XR/eSzBDRnlAEzb\nKziVwa4B1OLnLo6duspKS2H5YJn57G09iX9xefBxHugCO5HMGX/nxs6WUSss\nL7lE\r\n=2QPn\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "LoudSanta54",
+      "hash": "983cda4baefd136724c69147cd7aa95903db3706397fb8ab906243d566491dba",
+      "timestamp": "1512924400"
+    },
+    {
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"from\":\"LoudSanta54\",\"timestamp\":\"1512924416561\",\"data\":\"I vote for Ronald\",\"hash\":\"c33ed08f0bd65a7555fe012d5d5da824030a5be88477ee704fa2e3b6bc37cd1b\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaLWUBCRB+coBDweC3GQAAeKUP/3jB/LzVbrtEQNntLNMk\n48rqHPu7Q9TWT5RbYsjvRZGCwhidJlAWG/F5dFYAPtESiBnP+HqgVdcor7gi\nOE2DRxO2TbXWRTJuQY2P/U6a1aMTKdn6TRhXfQ/jGSEp7WWfDQHwNWDVkEoa\n0GHZvT3h8iExOZx8SIZkI8e1Qd8FHPU8KIfVa+E3iOM1G5OwGlnINYGDFCq1\nyzrFopKjyrnFuSSHdSUv8mJ3KIfsEbdktbq3WkKjW8zL5EI4fr4vBgh0wfyz\nrUw4z6Wx1CqEbiAzjxGVjbdTbD2GcQxqh6vgjW34HTmFGZcUGLpMJp0lcvkE\nmEU2Ow0chyUE26xf0cXoHkiBaw6OdZFuQejM1JudsWyen7VWZSdjlOTzf9Nv\njaxux5JjQKmWoUqJRT2jVCehuIiRfHBcg/fMWiUYtSVxusrGotS34scuXw8B\np/hVmXz9qbkmb2VZFZSJZA9lYEZhtMvXj6STu7zAx8PSEm6QHBE8SVyjXrgp\n2eqDIifpDoRGXsuyvOmRKwni2eUS6xEwaPlVheFQtt4cZrFE3c6XB3UAc4nQ\nM7NHKaRyJi3DSvxzn+L4/OMghId1e5Ovm6dv/81ielm8TBQrmJsP6WJ5F9gJ\nilBddGF6XEwMfrHE7jqR8XuIcVbCjvzq0bi0vBriVbXRh/jUIdY1YEpjm2mr\nMLK6\r\n=mHGa\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "LoudSanta54",
+      "hash": "c33ed08f0bd65a7555fe012d5d5da824030a5be88477ee704fa2e3b6bc37cd1b",
+      "timestamp": "1512924418"
+    },
+    {
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"from\":\"LoudSanta54\",\"timestamp\":\"1512924542379\",\"data\":\"I vote for Ronald\",\"hash\":\"994b0a2263137810e1520d3f154d6a426959721ac3139623d76d3ad4dbde7e50\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaLWV+CRAyATzjrYfczQAAIocQAKhXh/VIoiX88YsfVTHu\n+3DogmA2qxErWsR6TGTPpNM0TTwsCDzEdRk2yuzA68/rgvCzfP3Ruyk0HcIr\nJzpUW2BjLCKt//M5dATHqK5mmuIepokseonFTTLD/dxqglMTZDQ0qproY6HH\nnl7FdZ701EawTEXu4SwhUKjEPvxwcuzbi1qEcli2W08Mfq5zcJdLV4GBkjWp\nCUU77HvAdKtp2yeXq9cSX8gbclODPz2wXeovmT6XKT9fek9fvWfcIN4RXr0+\n2lwvcTklMvOwHclDeDnDF9USDF/ahuMmnn1Pds6GE/I/UVvyMmm6IerZjb7j\nCdF0pnSaM6MTt3kgXfB/KgZdl2fXc/ETCdeD8i9oKjYHjyMVQthyuePejZRh\nO0Kiqdphf/uG2bwHrrqo6PpbS3vdP+EIJ/MP3zLVUwJ7zXAUeuFI5SKV4blQ\nUChA7i/4I9SIN7D/yS/9PWhkFzDh7mCf6tfkEvidXCJa3fBTuj6df8L35KTb\nvXt3lrKAz/0kFcaepoWq+t7j083HhvcEW5uFp3OaPmHLtCCsiaINJN7c9J78\nInZv318Sha4t3I9q/dX2XXrMuLycHjN9ASmavapPFT0PAKJMQNxQpg9/t/w5\nOW9ugmuJPFKeTych3ucjmSmKC6wn4N3EzJGD5fP8dm07JZVaUuKYqMPrrzt6\noWqb\r\n=C0OE\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "LoudSanta54",
+      "hash": "994b0a2263137810e1520d3f154d6a426959721ac3139623d76d3ad4dbde7e50",
+      "timestamp": "1512924544"
+    },
+    {
+      "data": "\r\n-----BEGIN PGP SIGNED MESSAGE-----\r\nHash: SHA256\r\n\r\n{\"from\":\"LoudSanta54\",\"timestamp\":\"1512924564421\",\"data\":\"I vote for Ronald\",\"hash\":\"6cf2a9709251bbe6c7f880b58ed1c4b391c2f2bffccdf804b5d3959e366d032a\"}\r\n-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v2.5.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJaLWWUCRDrStjWtJpmDwAAA9IP/1koI+4JFnY+LEdJxQbw\nsAdxsm/LwR/QdaVyHdaiZqZGwkvroi3xAV5tiNFODfrtDsu8NsLW3dB79yDd\n8d7zAfU3ClcAYnFQMvILINA1Ydqaueciywf/lPXt4D+AHgho30IHk9kqOCod\nvPIKOBHhP+iQozqakWcgdIbqLKslBXzTb9ezyxSGvdlhlrqrR2hkrIxsQbgT\n+mtC8i6pYcfmYho5Vi1Qny5mn4x7ytEIredQ+jHmgTnMscflYJTU/zLWypvB\nMVBUg+EIDRKqm1hpOVI5YUC5cImTJ7n5h6FkP7/caXIXTgl/VPLNgtxyZAyd\nkG87bKjUq//sET+zPInsYOPvbOjx3tBXlVK+jQVMVIgamVXm07G6cL2oZmUQ\nnaH3rfX9uSjkIFOiCOf+Thmm3Ui+rgDGjXV+zJQ96vIOORn8pYHzJMoLMXVQ\nl/otk75MmjSsli5q/jdAc6GqS3JBKP3fubg3x8IHnFo4YZvjxxEllFdwCtRL\nUGQN7l8kXViiFmINVc8o06buXvxouboU+KYPsoItPVBI+avRaLFo/eoa1Rtd\nwp6P5QoNwkca+sGMDYZ6sZnFp0nOi0BCZYiesQ+lg6Cse6iYrAFnGpawZa7i\n8BNsTWcvKVPaovaf2zyqqkRDMGturesVJ5fkZaGzunE/NO/c42VhKUCGrrny\nQqII\r\n=nOkr\r\n-----END PGP SIGNATURE-----\r\n",
+      "from": "LoudSanta54",
+      "hash": "6cf2a9709251bbe6c7f880b58ed1c4b391c2f2bffccdf804b5d3959e366d032a",
+      "timestamp": "1512924566"
+    }
+  ]
+}
