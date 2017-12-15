@@ -18,5 +18,8 @@ $ go run server.go
 
 3. Open `BlockchainMural/index.html` in a web browser
 
+## blockchain_tools.go
+For now, this verifies the validity of the blockchain.
+
 ## Contributions
 Welcome
