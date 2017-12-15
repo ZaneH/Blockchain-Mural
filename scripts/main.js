@@ -31,8 +31,8 @@ var pendingTransactions = [];
  * This project is to demonstrate how a Blockchain works and
  * as such isn't meant to hold any real value. In an applied
  * Blockchain that holds value, a block would be made up of
- * more than one transaction. These blocks of transactions
- * would store a 'fee' and the block would also have a bonus
+ * more than one transaction. These 'blocks' of transactions
+ * would store a fee and the block would also have a bonus
  * that any miner would then receive.
  */
 var transactionBlocks = [];
@@ -135,6 +135,8 @@ function confirmPendingTransaction() {
   // on a smartphone, this takes about 1 - 10 seconds to find
   var re = new RegExp("^00000");
 
+  console.log("[-] Searching for a valid hash...");
+  
   // the start and finish variables let us time the hash calculation
   var start = performance.now();
   do {
@@ -147,11 +149,13 @@ function confirmPendingTransaction() {
 
   // setting up the transaction-block to submit as Proof of Work
   var workingTransactionBlock = {
+    from: workingTransaction["from"],
     confirmee: username,
     hash: workingHash.toString(),
     previousHash: '0', // this is set on the server
     timestamp: (Math.floor(Date.now() / 1000)).toString(),
-    transaction: JSON.stringify(workingTransaction["data"])
+    transaction: JSON.stringify(workingTransaction["data"]),
+    publicKey: workingTransaction["publicKey"]
   };
 
   submitWorkingTransactionBlock(JSON.stringify(workingTransactionBlock), function(data) {
@@ -164,7 +168,6 @@ function confirmPendingTransaction() {
   "[+] Hashes generated: " + hashCount + "\n" +
   "[+] Hash calculated in " + ((finish - start) / 1000).toString() + " seconds." + "\n" +
   "[+] Generated a transaction-block:\n";
-  // alert(logMessage);
   console.log(logMessage);
   console.log(workingTransactionBlock);
 }
@@ -205,7 +208,7 @@ function generateSafeName() {
 
   randomAdjectiveIndex = Math.floor((Math.random() * 100) % adjectives.length);
   randomNounIndex = Math.floor((Math.random() * 100) % nouns.length);
-  randomIndex = Math.floor((Math.random() * 100));
+  randomNumber = Math.floor((Math.random() * 100));
 
-  return (adjectives[randomAdjectiveIndex] + nouns[randomNounIndex] + randomIndex).toString();
+  return (adjectives[randomAdjectiveIndex] + nouns[randomNounIndex] + randomNumber).toString();
 }

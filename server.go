@@ -6,9 +6,9 @@ import (
 	"log"
 	"encoding/json"
 	"io/ioutil"
-	"github.com/Jeffail/gabs"
 	"time"
 	"strconv"
+	"github.com/Jeffail/gabs"
 )
 
 type Blockchain struct {
@@ -38,6 +38,7 @@ type VoteData struct {
 }
 
 func main() {
+	// tfw Go makes writing an api fun
 	http.HandleFunc("/", UnhandledRequest)
 	http.HandleFunc("/submit_transaction_block", SubmitTransactionBlock)
 	http.HandleFunc("/submit_vote", ProcessVote);
@@ -72,12 +73,11 @@ func SubmitTransactionBlock(w http.ResponseWriter, r *http.Request) {
 	// add the transaction to the confirmed transactions
 	blockchain.ArrayAppend(transaction.Data(), "confirmed")
 
-	// removes the most recent transaction (this might be dangerous...)
+	// removes the most recent transaction (this might be dangerous when scaled...)
 	blockchain.ArrayRemoveP(0, "pending")
 
-	ioutil.WriteFile("blockchain.json", []byte(blockchain.StringIndent("", "  ")), 0644)
-
-	// fmt.Printf("%v\n\n", transaction)
+	blockchainString := blockchain.StringIndent("", "  ")
+	ioutil.WriteFile("blockchain.json", []byte(blockchainString), 0644)
 }
 
 func ProcessVote(w http.ResponseWriter, r *http.Request) {
@@ -95,7 +95,7 @@ func ProcessVote(w http.ResponseWriter, r *http.Request) {
 	WritePendingTransactionToFile(jsonData.PublicKey, jsonData.Message, jsonData.Raw)
 }
 
-func WritePendingTransactionToFile(pubkey string, message string, raw string) {
+func WritePendingTransactionToFile(pubkey string, signed_message string, raw string) {
 	blockchainJson, err := ioutil.ReadFile("./blockchain.json")
 
 	if err != nil {
@@ -110,7 +110,8 @@ func WritePendingTransactionToFile(pubkey string, message string, raw string) {
 	newTransaction.Set(transaction.Path("hash").Data(), "hash")
 	newTransaction.Set(transaction.Path("from").Data(), "from")
 	newTransaction.Set(strconv.FormatInt(int64(time.Now().Unix()), 10), "timestamp")
-	newTransaction.Set(message, "data")
+	newTransaction.Set(pubkey, "publicKey")
+	newTransaction.Set(signed_message, "data")
 
 	blockchain.ArrayAppend(newTransaction.Data(), "pending")
 

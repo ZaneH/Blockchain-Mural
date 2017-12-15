@@ -29,7 +29,7 @@
     // during development, Firefox was caching blockchain.json
     $.ajaxSetup({ cache: false });
     
-    // custom console.log()
+    // custom console.log() for development purposes
     if (window.console) {
     console.original_log = console.log;
     console.log = function(str) {
