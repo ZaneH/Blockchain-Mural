@@ -1,8 +1,7 @@
 # Blockchain Mural
 This repository contains the files necessary to run a private Blockchain demonstration at the
 University of Charlotte at North Carolina. This project was built to help visualize how a
-Blockchain works through an interactive mural. If this submission wins, it will be built
-in Woodward Hall.
+Blockchain works through an interactive mural.
 
 ## How to Run
 1. Clone the repository
